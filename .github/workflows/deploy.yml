@@ -1,4 +1,4 @@
-name: Deploy a-mamal.dev
+name: Deploy initial a-mamal.dev
 
 # Run this workflow whenever you push to main
 on:
@@ -54,7 +54,7 @@ jobs:
           port: ${{ secrets.HOSTINGER_SSH_PORT }}
           script: |
             set -e
-            cd ~/domains/a-mamal.dev
+            cd ~/domains/initial.a-mamal.dev
             composer2 install --no-dev --optimize-autoloader
             php artisan optimize:clear
             php artisan optimize
@@ -71,6 +71,6 @@ jobs:
           port: ${{ secrets.HOSTINGER_SSH_PORT }}
           script: |
             set -e
-            cd ~/domains/a-mamal.dev
+            cd ~/domains/initial.a-mamal.dev
             rm -rf ./public_html
             ln -s ./public public_html
